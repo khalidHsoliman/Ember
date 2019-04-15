@@ -8,8 +8,6 @@ int main( int argc, char** argv )
 {
 	Ember::Log::Init( );
 	EMBER_CORE_WARN( "Initialized Log!" );
-	int a = 5;
-	EMBER_CORE_INFO( "Hello! Var={0}", a );
 
 	auto app = Ember::CreateApplication( );
 	app->Run( );
