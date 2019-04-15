@@ -10,6 +10,13 @@ workspace "EMBER"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "EMBER/vendor/GLFW/include"
+
+include "EMBER/vendor/GLFW"
+
+
 project "EMBER"
 	location "EMBER"
 	kind "SharedLib"
@@ -30,7 +37,14 @@ project "EMBER"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+		links 
+	{ 
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
