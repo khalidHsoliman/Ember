@@ -1,8 +1,6 @@
 #pragma once
 
 #include "../Core.h"
-#include <iostream>
-#include <sstream>
 
 namespace Ember
 {

@@ -152,10 +152,12 @@
     <ClInclude Include="src\Ember\Events\KeyEvent.h" />
     <ClInclude Include="src\Ember\Events\MouseEvent.h" />
     <ClInclude Include="src\Ember\Log.h" />
+    <ClInclude Include="src\Epch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ember\Application.cpp" />
     <ClCompile Include="src\Ember\Log.cpp" />
+    <ClCompile Include="src\Epch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
