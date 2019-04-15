@@ -10,4 +10,18 @@
 #error Ember only support Windows!
 #endif // EMBER_PLATFORM_WINDOWS
 
+
+#ifdef EMBER_DEBUG
+#define EMBER_ENABLE_ASSERTS
+#endif
+
+// Windows specific assert 
+#ifdef EMBER_ENABLE_ASSERTS
+#define EMBER_ASSERT(x, ...) { if(!(x)) { EMBER_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#define EMBER_CORE_ASSERT(x, ...) { if(!(x)) { EMBER_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+#else
+#define EMBER_ASSERT(x, ...)
+#define EMBER_CORE_ASSERT(x, ...)
+#endif
+
 #define BIT(x) (1 << x)
