@@ -22,7 +22,7 @@ namespace Ember {
 
 // Core log macros
 #define EMBER_CORE_TRACE(...)     ::Ember::Log::GetCoreLogger()->trace(__VA_ARGS__)
-#define EMBER_CORE_INFO(...)      ::Ember::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define EMBER_CORE_INFO(...)	  ::Ember::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define EMBER_CORE_WARN(...)      ::Ember::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define EMBER_CORE_ERROR(...)     ::Ember::Log::GetCoreLogger()->error(__VA_ARGS__)
 #define EMBER_CORE_FATAL(...)     ::Ember::Log::GetCoreLogger()->fatal(__VA_ARGS__)

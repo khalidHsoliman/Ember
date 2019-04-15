@@ -2,12 +2,17 @@
 
 #ifdef EMBER_PLATFORM_WINDOWS
 
-extern Ember::Application* Ember::CreateApplication(); 
+extern Ember::Application* Ember::CreateApplication( );
 
-int main(int argc, char** argv)
+int main( int argc, char** argv )
 {
-	auto app = Ember::CreateApplication(); 
-	app->Run(); 
+	Ember::Log::Init( );
+	EMBER_CORE_WARN( "Initialized Log!" );
+	int a = 5;
+	EMBER_CORE_INFO( "Hello! Var={0}", a );
+
+	auto app = Ember::CreateApplication( );
+	app->Run( );
 	delete app;
 }
 
