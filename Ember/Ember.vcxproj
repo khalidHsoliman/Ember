@@ -154,6 +154,8 @@
     <ClInclude Include="src\Ember\Events\Event.h" />
     <ClInclude Include="src\Ember\Events\KeyEvent.h" />
     <ClInclude Include="src\Ember\Events\MouseEvent.h" />
+    <ClInclude Include="src\Ember\Layer.h" />
+    <ClInclude Include="src\Ember\LayerStack.h" />
     <ClInclude Include="src\Ember\Log.h" />
     <ClInclude Include="src\Ember\Window.h" />
     <ClInclude Include="src\Epch.h" />
@@ -161,6 +163,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ember\Application.cpp" />
+    <ClCompile Include="src\Ember\Layer.cpp" />
+    <ClCompile Include="src\Ember\LayerStack.cpp" />
     <ClCompile Include="src\Ember\Log.cpp" />
     <ClCompile Include="src\Epch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
