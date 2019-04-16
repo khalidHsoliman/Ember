@@ -11,13 +11,13 @@ public:
 
 	void OnUpdate( ) override
 	{
-		EMBER_INFO( "Examplelayer::Update" );
+		//EMBER_INFO( "Examplelayer::Update" );
 	}
 
 
 	void OnEvent( Ember::Event& event ) override
 	{
-		EMBER_TRACE( "{0}", event );
+		//EMBER_TRACE( "{0}", event );
 	}
 
 };
