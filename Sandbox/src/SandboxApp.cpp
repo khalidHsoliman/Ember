@@ -1,20 +1,42 @@
-#include "Ember.h"
+#include <Ember.h>
+
+
+class ExampleLayer : public Ember::Layer
+{
+public:
+	ExampleLayer( )
+		: Layer( "Example" )
+	{
+	}
+
+	void OnUpdate( ) override
+	{
+		EMBER_INFO( "Examplelayer::Update" );
+	}
+
+
+	void OnEvent( Ember::Event& event ) override
+	{
+		EMBER_TRACE( "{0}", event );
+	}
+
+};
 
 class Sandbox : public Ember::Application
 {
 public:
-	Sandbox()
+	Sandbox( )
 	{
-
+		PushLayer( new ExampleLayer( ) );
 	}
 
-	~Sandbox()
+	~Sandbox( )
 	{
 
 	}
 };
 
-Ember::Application* Ember::CreateApplication()
+Ember::Application* Ember::CreateApplication( )
 {
-	return new Sandbox(); 
+	return new Sandbox( );
 }
