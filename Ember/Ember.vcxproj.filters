@@ -7,6 +7,12 @@
     <Filter Include="Ember\Events">
       <UniqueIdentifier>{74B89ED4-601B-2E79-09A1-662FF5E2F9FB}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Ember.h" />
@@ -34,7 +40,13 @@
     <ClInclude Include="src\Ember\Log.h">
       <Filter>Ember</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ember\Window.h">
+      <Filter>Ember</Filter>
+    </ClInclude>
     <ClInclude Include="src\Epch.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ember\Application.cpp">
@@ -44,5 +56,8 @@
       <Filter>Ember</Filter>
     </ClCompile>
     <ClCompile Include="src\Epch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

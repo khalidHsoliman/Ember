@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Epch.h"
 #include "../Core.h"
 
 namespace Ember

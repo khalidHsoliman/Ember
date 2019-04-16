@@ -158,7 +158,9 @@
     <ClInclude Include="src\Ember\Events\KeyEvent.h" />
     <ClInclude Include="src\Ember\Events\MouseEvent.h" />
     <ClInclude Include="src\Ember\Log.h" />
+    <ClInclude Include="src\Ember\Window.h" />
     <ClInclude Include="src\Epch.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ember\Application.cpp" />
@@ -166,6 +168,7 @@
     <ClCompile Include="src\Epch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
