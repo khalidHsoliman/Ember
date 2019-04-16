@@ -1,7 +1,7 @@
 #include "Epch.h"
 #include "ImGuiLayer.h"
 
-#include "../imgui.h"
+#include "imgui.h"
 #include "Platform/OpenGL/ImGuiOpenGLRenderer.h"
 
 #include "Ember/Application.h"

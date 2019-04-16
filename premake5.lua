@@ -1,5 +1,6 @@
 workspace "Ember"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations
 	{
@@ -20,11 +21,11 @@ include "Ember/vendor/GLFW"
 include "Ember/vendor/Glad"
 include "Ember/vendor/imgui"
 
-
 project "Ember"
 	location "Ember"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -68,7 +69,7 @@ project "Ember"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
@@ -128,4 +129,5 @@ project "Sandbox"
 
 	filter "configurations:Dist"
 		defines "EMBER_DIST"
+		runtime "Release"
 		optimize "On"

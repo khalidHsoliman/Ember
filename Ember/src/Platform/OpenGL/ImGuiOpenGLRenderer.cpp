@@ -54,7 +54,7 @@
 #endif
 
 #include "Epch.h"
-#include "../imgui.h"
+#include "imgui.h"
 #include "ImGuiOpenGLRenderer.h"
 #include <stdio.h>
 #include <glad\glad.h>
