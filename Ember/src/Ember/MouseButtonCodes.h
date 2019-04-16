@@ -1,0 +1,15 @@
+#pragma once
+
+// From glfw3.h
+#define EMBER_MOUSE_BUTTON_1         0
+#define EMBER_MOUSE_BUTTON_2         1
+#define EMBER_MOUSE_BUTTON_3         2
+#define EMBER_MOUSE_BUTTON_4         3
+#define EMBER_MOUSE_BUTTON_5         4
+#define EMBER_MOUSE_BUTTON_6         5
+#define EMBER_MOUSE_BUTTON_7         6
+#define EMBER_MOUSE_BUTTON_8         7
+#define EMBER_MOUSE_BUTTON_LAST      EMBER_MOUSE_BUTTON_8
+#define EMBER_MOUSE_BUTTON_LEFT      EMBER_MOUSE_BUTTON_1
+#define EMBER_MOUSE_BUTTON_RIGHT     EMBER_MOUSE_BUTTON_2
+#define EMBER_MOUSE_BUTTON_MIDDLE    EMBER_MOUSE_BUTTON_3 

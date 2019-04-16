@@ -11,13 +11,20 @@ public:
 
 	void OnUpdate( ) override
 	{
-		//EMBER_INFO( "Examplelayer::Update" );
+		if (Ember::Input::IsKeyPressed( EMBER_KEY_TAB ))
+			EMBER_TRACE( "Tab key is pressed (poll)!" );
 	}
 
 
 	void OnEvent( Ember::Event& event ) override
 	{
-		//EMBER_TRACE( "{0}", event );
+		if (event.GetEventType( ) == Ember::EventType::KeyPressed)
+		{
+			Ember::KeyPressedEvent& e = ( Ember::KeyPressedEvent& )event;
+			if (e.GetKeyCode( ) == EMBER_KEY_TAB)
+				EMBER_TRACE( "Tab key is pressed (event)!" );
+			EMBER_TRACE( "{0}", (char) e.GetKeyCode( ) );
+		}
 	}
 
 };
