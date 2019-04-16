@@ -1,4 +1,4 @@
-workspace "EMBER"
+workspace "Ember"
 	architecture "x64"
 
 	configurations
@@ -12,13 +12,13 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
-IncludeDir["GLFW"] = "EMBER/vendor/GLFW/include"
+IncludeDir["GLFW"] = "Ember/vendor/GLFW/include"
 
-include "EMBER/vendor/GLFW"
+include "Ember/vendor/GLFW"
 
 
-project "EMBER"
-	location "EMBER"
+project "Ember"
+	location "Ember"
 	kind "SharedLib"
 	language "C++"
 
@@ -26,7 +26,7 @@ project "EMBER"
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	pchheader "Epch.h"
-	pchsource "EMBER/src/Epch.cpp"
+	pchsource "Ember/src/Epch.cpp"
 
 	files
 	{
@@ -49,13 +49,12 @@ project "EMBER"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
 		{
 			"EMBER_PLATFORM_WINDOWS",
-			"EMBER_BUILD_DLL"
+			"EMBER_BUILD_DLL",
 		}
 
 		postbuildcommands
@@ -79,6 +78,7 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -91,18 +91,17 @@ project "Sandbox"
 
 	includedirs
 	{
-		"EMBER/vendor/spdlog/include",
-		"EMBER/src"
+		"Ember/vendor/spdlog/include",
+		"Ember/src"
 	}
 
 	links
 	{
-		"EMBER"
+		"Ember"
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
