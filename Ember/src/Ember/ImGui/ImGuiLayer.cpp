@@ -92,7 +92,55 @@ namespace Ember
 	{
 		static bool show = true;
 		ImGui::ShowDemoWindow(&show);
+		/*
+		bool inspector_active = true;
+		bool dialoug_active = true;
+
+		if (ImGui::BeginMainMenuBar())
+		{
+			if (ImGui::BeginMenu("File"))
+			{	
+				if (ImGui::MenuItem("New", "Ctrl+N")) { 
+					ImGui::Begin("New File", &dialoug_active, ImGuiWindowFlags_None);
+					ImGui::End();
+				}
+				if (ImGui::MenuItem("Open..", "Ctrl+O")) {  }
+				if (ImGui::MenuItem("Save", "Ctrl+S")) {  }
+				if (ImGui::MenuItem("Close", "Ctrl+W")) {  }
+				ImGui::EndMenu();
+			}
+
+			if (ImGui::BeginMenu("Edit"))
+			{
+				//...
+				ImGui::EndMenu();
+			}
+
+			if (ImGui::BeginMenu("Window"))
+			{
+				//...
+				ImGui::EndMenu();
+			}
+
+			if (ImGui::BeginMenu("Help"))
+			{
+				if (ImGui::MenuItem("About")) {  }
+				ImGui::EndMenu();
+			}	
+
+			ImGui::EndMainMenuBar();
+		}
+
+		ImGui::Begin("Inspector", &inspector_active, ImGuiWindowFlags_None);
+
+		ImGui::BeginChild("child", ImVec2(0, 50), true);
+
+		ImGui::Text("This is another child window for testing the _ChildWindows flag.");
+		ImGui::EndChild();
+		
+
+		ImGui::End();*/
 	}
 
-
+	
 }
