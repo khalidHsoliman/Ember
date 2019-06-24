@@ -13,6 +13,9 @@
     <Filter Include="src\Ember\ImGui">
       <UniqueIdentifier>{5163D435-BDEE-41FA-C6FF-C4EE320A9EFA}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Ember\ImGui\UI">
+      <UniqueIdentifier>{DEC0CA8B-CAA4-8BE1-3305-86341F087663}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platform">
       <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
     </Filter>
@@ -66,8 +69,14 @@
     <ClInclude Include="src\Ember\Events\MouseEvent.h">
       <Filter>src\Ember\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Ember\ImGui\GUI.h">
+      <Filter>src\Ember\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Ember\ImGui\ImGuiLayer.h">
       <Filter>src\Ember\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ember\ImGui\UI\ButtonColorPicker.h">
+      <Filter>src\Ember\ImGui\UI</Filter>
     </ClInclude>
     <ClInclude Include="src\Ember\Input.h">
       <Filter>src\Ember</Filter>
@@ -1196,11 +1205,17 @@
     <ClCompile Include="src\Ember\Application.cpp">
       <Filter>src\Ember</Filter>
     </ClCompile>
+    <ClCompile Include="src\Ember\ImGui\GUI.cpp">
+      <Filter>src\Ember\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\Ember\ImGui\ImGuiBuild.cpp">
       <Filter>src\Ember\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Ember\ImGui\ImGuiLayer.cpp">
       <Filter>src\Ember\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ember\ImGui\UI\ButtonColorPicker.cpp">
+      <Filter>src\Ember\ImGui\UI</Filter>
     </ClCompile>
     <ClCompile Include="src\Ember\Layer.cpp">
       <Filter>src\Ember</Filter>

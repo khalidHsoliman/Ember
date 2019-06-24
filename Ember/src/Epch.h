@@ -2,7 +2,7 @@
 
 #ifdef EMBER_PLATFORM_WINDOWS
 #include <Windows.h>
-#endif 
+#endif
 
 #include <iostream>
 #include <memory>

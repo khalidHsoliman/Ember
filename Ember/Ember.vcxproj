@@ -157,7 +157,9 @@
     <ClInclude Include="src\Ember\Events\Event.h" />
     <ClInclude Include="src\Ember\Events\KeyEvent.h" />
     <ClInclude Include="src\Ember\Events\MouseEvent.h" />
+    <ClInclude Include="src\Ember\ImGui\GUI.h" />
     <ClInclude Include="src\Ember\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Ember\ImGui\UI\ButtonColorPicker.h" />
     <ClInclude Include="src\Ember\Input.h" />
     <ClInclude Include="src\Ember\KeyCodes.h" />
     <ClInclude Include="src\Ember\Layer.h" />
@@ -535,8 +537,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ember\Application.cpp" />
+    <ClCompile Include="src\Ember\ImGui\GUI.cpp" />
     <ClCompile Include="src\Ember\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Ember\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Ember\ImGui\UI\ButtonColorPicker.cpp" />
     <ClCompile Include="src\Ember\Layer.cpp" />
     <ClCompile Include="src\Ember\LayerStack.cpp" />
     <ClCompile Include="src\Ember\Log.cpp" />
@@ -560,4 +564,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project>
+</Project> 
