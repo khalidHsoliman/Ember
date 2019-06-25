@@ -271,7 +271,7 @@ namespace Ember
 		ImGui::Begin("Log");
 		//-->From SandBoxApp.cpp
 		if (Ember::Input::IsKeyPressed(EMBER_KEY_TAB))
-			log.AddLog("Tab key is pressed (poll)!");
+			log.AddLog("Tab key is pressed (poll)!\n");
 		
 		log.Draw("Log", &p_open);
 
