@@ -4,6 +4,9 @@
 //-->Should be Seperated
 #include <filesystem>
 #include <fstream>
+#include "Ember/Input.h"
+#include "Ember/KeyCodes.h"
+#include "Ember/MouseButtonCodes.h"
 
 namespace Ember
 {
@@ -113,18 +116,14 @@ namespace Ember
 
 	void ShowNewFileDialog(bool* dialog_new_active)
 	{
-		static char str0[128] = "D:/New Ember Project";
+		static char str0[128] = "D:/New Ember Project/";
 		static char str1[128] = "Project1.Ember";
 		ImGui::SetNextWindowSize(ImVec2(500, 400), ImGuiCond_FirstUseEver);
 		ImGui::Begin("New Project");
-		//ImGui::Text("Directory");
-		//ImGui::SameLine();
 		ImGui::InputText("Directory", str0, IM_ARRAYSIZE(str0));
 		ImGui::SameLine();
 		ImGui::Button("Browse", ImVec2(100, 25));
 		ImGui::NewLine();
-		//ImGui::Text("Project Name");
-		//ImGui::SameLine();
 		ImGui::InputText("Project Name", str1, IM_ARRAYSIZE(str1));
 		ImGui::NewLine();
 		if (ImGui::Button("Create New Project", ImVec2(150, 50)))
@@ -132,7 +131,11 @@ namespace Ember
 			//-->Should be Seperated in FileSystem script
 			std::filesystem::create_directory(str0);
 			std::ofstream newFile;
-			//newFile.open("D:/New Ember Project/Project1.Ember");
+			char* str2 = new char[strlen(str0) + strlen(str1) + 1];
+			strcpy(str2, str0);
+			strcat(str2, str1);
+			newFile.open(str2);
+			//-->Initializing goes here
 		}
 		
 		ImGui::End();
@@ -153,12 +156,124 @@ namespace Ember
 		ImGui::End();
 	}
 
+	struct LogWindow
+	{
+		ImGuiTextBuffer buf;
+		ImGuiTextFilter filter;
+		ImVector<int> lineOffset;
+		bool autoScroll;
+		bool scrollBottom;
+
+		LogWindow()
+		{
+			autoScroll = true;
+			scrollBottom = false;
+			Clear();
+		}
+
+		void Clear()
+		{
+			buf.clear();
+			lineOffset.clear();
+			lineOffset.push_back(0);
+		}
+
+		void AddLog(const char* fmt, ...)IM_FMTARGS(2)
+		{
+			int oldSize = buf.size();
+			va_list args;
+			va_start(args, fmt);
+			buf.appendfv(fmt, args);
+			va_end(args);
+			for (int newSize = buf.size(); oldSize < newSize; oldSize++)
+				if (buf[oldSize] == '\n')
+					lineOffset.push_back(oldSize + 1);
+			if (autoScroll)
+				scrollBottom = true;
+		}
+
+		void Draw(const char* title, bool* p_open = NULL)
+		{
+			if (!ImGui::Begin(title, p_open))
+			{
+				ImGui::End();
+				return;
+			}
+			
+			if (ImGui::BeginPopup("Options"))
+			{
+				if (ImGui::Checkbox("Auto-scroll", &autoScroll))
+					if (autoScroll)
+						scrollBottom = true;
+				ImGui::EndPopup();
+			}
+
+			if(ImGui::Button("Options"))
+				ImGui::OpenPopup("Options");
+			ImGui::SameLine();
+			bool clear = ImGui::Button("Clear");
+			ImGui::SameLine();
+			bool copy = ImGui::Button("Copy");
+			ImGui::SameLine();
+			filter.Draw("Filter", -100.0f);
+
+			ImGui::Separator();
+			ImGui::BeginChild("scrolling", ImVec2(0, 0), false, ImGuiWindowFlags_HorizontalScrollbar);
+
+			if (clear)
+				Clear();
+			if (copy)
+				ImGui::LogToClipboard();
+
+			ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(0, 0));
+			const char* bufNew = buf.begin();
+			const char* bufNewEnd = buf.end();
+			if (filter.IsActive())
+			{
+				for (int line_no = 0; line_no < lineOffset.Size; line_no++)
+				{
+					const char* line_start = bufNew + lineOffset[line_no];
+					const char* line_end = (line_no + 1 < lineOffset.Size) ? (bufNew + lineOffset[line_no + 1] - 1) : bufNewEnd;
+					if (filter.PassFilter(line_start, line_end))
+						ImGui::TextUnformatted(line_start, line_end);
+				}
+			}
+			else
+			{
+				ImGuiListClipper clipper;
+				clipper.Begin(lineOffset.Size);
+				while (clipper.Step())
+				{
+					for (int line_no = clipper.DisplayStart; line_no < clipper.DisplayEnd; line_no++)
+					{
+						const char* line_start = bufNew + lineOffset[line_no];
+						const char* line_end = (line_no + 1 < lineOffset.Size) ? (bufNew + lineOffset[line_no + 1] - 1) : bufNewEnd;
+						ImGui::TextUnformatted(line_start, line_end);
+					}
+				}
+				clipper.End();
+			}
+			ImGui::PopStyleVar();
+
+			if (scrollBottom)
+				ImGui::SetScrollHereY(1.0f);
+			scrollBottom = false;
+			ImGui::EndChild();
+			ImGui::End();
+		}
+	};
+
 	void ShowLogWindow()
 	{
+		static bool p_open = true;
+		static LogWindow log;
 		ImGui::SetNextWindowSize(ImVec2(500, 400), ImGuiCond_FirstUseEver);
-		ImGui::Begin("Example: Log");
-
+		ImGui::Begin("Log");
+		//-->From SandBoxApp.cpp
+		if (Ember::Input::IsKeyPressed(EMBER_KEY_TAB))
+			log.AddLog("Tab key is pressed (poll)!");
 		
+		log.Draw("Log", &p_open);
 
 		ImGui::End();
 	}
