@@ -21,6 +21,9 @@ namespace Ember
 		virtual void OnUpdate( )
 		{
 		}
+		virtual void OnImGuiRender( )
+		{
+		}
 		virtual void OnEvent( Event& event )
 		{
 		}
@@ -29,8 +32,8 @@ namespace Ember
 		{
 			return m_DebugName;
 		}
-
 	protected:
 		std::string m_DebugName;
 	};
+
 }

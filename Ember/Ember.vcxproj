@@ -166,7 +166,6 @@
     <ClInclude Include="src\Ember\MouseButtonCodes.h" />
     <ClInclude Include="src\Ember\Window.h" />
     <ClInclude Include="src\Epch.h" />
-    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -535,6 +534,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ImGuiBuild.cpp" />
     <ClCompile Include="src\Ember\Application.cpp" />
     <ClCompile Include="src\Ember\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Ember\Layer.cpp" />
@@ -543,7 +543,6 @@
     <ClCompile Include="src\Epch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
