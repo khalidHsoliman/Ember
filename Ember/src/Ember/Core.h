@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef EMBER_PLATFORM_WINDOWS
+#if EMBER_DYNAMIC_LINK
 #ifdef EMBER_BUILD_DLL
 #define EMBER_API __declspec(dllexport)
 #else
 #define EMBER_API __declspec(dllimport)
 #endif // EMBER_BUILD_DLL
+#else
+#define EMBER_API 
+#endif
 #else 
 #error Ember only support Windows!
 #endif // EMBER_PLATFORM_WINDOWS
