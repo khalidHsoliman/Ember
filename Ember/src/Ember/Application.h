@@ -6,7 +6,7 @@
 #include "Ember/LayerStack.h"
 #include "Ember/Events/Event.h"
 #include "Ember/Events/ApplicationEvent.h"
-
+#include "Ember/Renderer/Shader.h"
 #include "Ember/ImGui/ImGuiLayer.h"
 
 namespace Ember
@@ -34,6 +34,9 @@ namespace Ember
 		{
 			return *s_Instance;
 		}
+
+		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 
 	private:
 		bool OnWindowClose( WindowCloseEvent& e );

@@ -155,8 +155,11 @@
     <ClInclude Include="src\Ember\LayerStack.h" />
     <ClInclude Include="src\Ember\Log.h" />
     <ClInclude Include="src\Ember\MouseButtonCodes.h" />
+    <ClInclude Include="src\Ember\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Ember\Renderer\Shader.h" />
     <ClInclude Include="src\Ember\Window.h" />
     <ClInclude Include="src\Epch.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -531,9 +534,11 @@
     <ClCompile Include="src\Ember\Layer.cpp" />
     <ClCompile Include="src\Ember\LayerStack.cpp" />
     <ClCompile Include="src\Ember\Log.cpp" />
+    <ClCompile Include="src\Ember\Renderer\Shader.cpp" />
     <ClCompile Include="src\Epch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
