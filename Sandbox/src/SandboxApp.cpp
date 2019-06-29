@@ -35,7 +35,6 @@ public:
 	Sandbox( )
 	{
 		PushLayer( new ExampleLayer( ) );
-		PushOverlay( new Ember::ImGuiLayer( ) );
 	}
 
 	~Sandbox( )
