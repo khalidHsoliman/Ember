@@ -4,6 +4,7 @@
 //-->Should be Seperated
 #include <filesystem>
 #include <fstream>
+#include "Ember/FileSystem.h"
 #include "Ember/Input.h"
 #include "Ember/KeyCodes.h"
 #include "Ember/MouseButtonCodes.h"
@@ -128,8 +129,7 @@ namespace Ember
 		ImGui::NewLine();
 		if (ImGui::Button("Create New Project", ImVec2(150, 50)))
 		{
-			//-->Should be Seperated in FileSystem script
-			std::filesystem::create_directory(str0);
+			FileSystem::CreateDirectory_(str0);
 			std::ofstream newFile;
 			char* str2 = new char[strlen(str0) + strlen(str1) + 1];
 			strcpy(str2, str0);
@@ -269,7 +269,7 @@ namespace Ember
 		static LogWindow log;
 		ImGui::SetNextWindowSize(ImVec2(500, 400), ImGuiCond_FirstUseEver);
 		ImGui::Begin("Log");
-		//-->From SandBoxApp.cpp
+		//-->From SandBoxApp.cpp: Log Test
 		if (Ember::Input::IsKeyPressed(EMBER_KEY_TAB))
 			log.AddLog("Tab key is pressed (poll)!\n");
 		
