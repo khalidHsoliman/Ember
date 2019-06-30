@@ -9,9 +9,4 @@ namespace Ember
 	{
 	}
 
-	Layer::~Layer( )
-	{
-
-	}
-
 }
